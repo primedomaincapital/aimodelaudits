@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Audit a Large Language Model: Methodology | aimodelaudits.com</title>
+<meta name="description" content="How to audit a large language model: bias and fairness testing, robustness evaluation, data lineage, red-teaming, and the NIST and ISO 42001 methodology.">
+<link rel="canonical" href="https://aimodelaudits.com/insights/article2.html">
+<meta property="og:title" content="How to Audit a Large Language Model: Methodology">
+<meta property="og:description" content="How to audit a large language model: bias and fairness testing, robustness evaluation, data lineage, red-teaming, and the NIST and ISO 42001 methodology.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="../images/photo-2599244.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "How to Audit a Large Language Model: Methodology", "description": "How to audit a large language model: bias and fairness testing, robustness evaluation, data lineage, red-teaming, and the NIST and ISO 42001 methodology.", "author": {"@type": "Organization", "name": "Prime Domain Capital"}, "publisher": {"@type": "Organization", "name": "Prime Domain Capital"}, "datePublished": "2026-10-17", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://aimodelaudits.com/insights/article2.html"}}
+</script>
+<style>
+:root{--void:#06060f;--violet:#8b5cf6;--cyan:#22d3ee;--paper:#f4f2ff;--muted:#8b8fa3}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--void);color:var(--paper);overflow-x:hidden;line-height:1.65}
+.mono{font-family:'JetBrains Mono',monospace}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;background:rgba(6,6,15,.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,92,246,.2)}
+nav .brand{font-weight:700;font-size:15px;letter-spacing:.04em}
+nav .brand span{color:var(--violet)}
+nav a.cta{background:var(--violet);color:#fff;font-weight:600;font-size:13px;padding:12px 28px;text-decoration:none;transition:.3s;font-family:'JetBrains Mono',monospace}
+nav a.cta:hover{background:var(--cyan);color:var(--void);transform:translateY(-2px)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero canvas#neural{position:absolute;inset:0;z-index:1}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.3;filter:hue-rotate(240deg) saturate(1.2)}
+.hero .bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(139,92,246,.25),transparent 60%),linear-gradient(to top,rgba(6,6,15,.95),rgba(6,6,15,.4))}
+.hero-inner{position:relative;z-index:2;padding:120px 5vw 80px;max-width:1200px}
+.term{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);border:1px solid rgba(34,211,238,.4);padding:8px 18px;margin-bottom:24px;letter-spacing:.1em}
+.term .blink{animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-size:clamp(50px,8vw,120px);font-weight:700;line-height:.98;letter-spacing:-.03em}
+h1 .grad{background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{max-width:620px;margin-top:26px;font-size:19px;color:#b8bcd0}
+.hero-price{margin-top:36px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.price-tag{font-family:'JetBrains Mono',monospace;font-size:42px;font-weight:700}
+.price-tag small{display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.btn{display:inline-block;background:var(--violet);color:#fff;font-weight:600;font-size:15px;padding:17px 44px;text-decoration:none;transition:.3s;font-family:'JetBrains Mono',monospace}
+.btn:hover{background:var(--cyan);color:var(--void);transform:translateY(-3px);box-shadow:0 14px 44px rgba(139,92,246,.4)}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid rgba(244,242,255,.25)}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:none}
+section{padding:110px 5vw;position:relative}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+h2{font-size:clamp(36px,5vw,68px);font-weight:700;line-height:1.04;letter-spacing:-.02em;margin-bottom:28px}
+h2 .grad{background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:19px;max-width:700px;color:#9a9eb5}
+.mandate{border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.05)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:54px}
+.two-col p{font-size:16.5px;color:#9a9eb5;margin-bottom:20px}
+.code-block{background:#0a0a18;border:1px solid rgba(139,92,246,.3);padding:36px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.9;overflow-x:auto}
+.code-block .k{color:var(--violet)}.code-block .s{color:var(--cyan)}.code-block .c{color:#555a75}
+.timeline{margin-top:56px;border-left:2px solid rgba(139,92,246,.3);padding-left:40px}
+.t-item{margin-bottom:36px;position:relative}
+.t-item::before{content:'';position:absolute;left:-49px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--void);border:3px solid var(--violet)}
+.t-item .mono{font-size:12px;color:var(--cyan);letter-spacing:.1em}
+.t-item h4{font-size:20px;margin:8px 0 6px}
+.t-item p{font-size:15px;color:#9a9eb5}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.photo-grid img{width:100%;height:280px;object-fit:cover;filter:hue-rotate(240deg) saturate(.9) brightness(.85);transition:.7s}
+.photo-grid img:hover{filter:none;transform:scale(1.04)}
+.stat-band{border-top:1px solid rgba(139,92,246,.2);border-bottom:1px solid rgba(139,92,246,.2)}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;text-align:center}
+.stat b{display:block;font-size:clamp(44px,5.5vw,76px);font-weight:700;background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.buyers .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:54px}
+.card{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2);padding:42px 36px;transition:.35s}
+.card:hover{transform:translateY(-8px);border-color:var(--cyan);box-shadow:0 20px 60px rgba(139,92,246,.2)}
+.card .mono{font-size:11px;color:var(--cyan);letter-spacing:.22em;margin-bottom:14px;display:block}
+.card h3{font-size:21px;font-weight:600;margin-bottom:12px}
+.card p{font-size:15px;color:#9a9eb5}
+.cta-sec{text-align:center}
+.cta-sec .lede{margin:0 auto 40px}
+.cta-sec .hero-price{justify-content:center}
+footer{padding:60px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;border-top:1px solid rgba(139,92,246,.2)}
+footer p{font-size:13px;color:var(--muted)}
+footer a{color:var(--cyan);text-decoration:none}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){.two-col,.photo-grid,.stat-grid,.buyers .cards{grid-template-columns:1fr}h1{font-size:54px}}
+
+.article-top{padding:150px 5vw 46px}
+.article-top .wrap{max-width:900px}
+.article-hero{margin:0}
+.article-hero img{width:100%;height:440px;object-fit:cover;display:block;filter:hue-rotate(240deg) saturate(.9) brightness(.85)}
+.meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.15em;margin-top:20px;text-transform:uppercase}
+.prose{border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.04);max-width:900px;margin:-80px auto 0;position:relative;padding:64px 64px 56px}
+.prose p{font-size:17px;color:#b8bcd0;margin-bottom:22px}
+.prose h2{font-size:31px;margin:54px 0 20px;color:var(--paper)}
+.prose strong{color:var(--paper)}
+.prose ul,.prose ol{margin:0 0 24px 22px;color:#b8bcd0;font-size:17px}
+.prose li{margin-bottom:10px}
+.pull{border-left:3px solid var(--cyan);padding:8px 0 8px 30px;margin:40px 0;font-size:23px;line-height:1.45;font-weight:600;color:var(--paper)}
+.pull p{font-size:23px;color:var(--paper);font-weight:600;margin:0}
+.rule{border:none;border-top:1px solid rgba(139,92,246,.2);margin:44px 0}
+.domain-note{font-size:15px;color:var(--muted);border-top:1px solid rgba(139,92,246,.2);padding-top:26px;margin-top:40px}
+.buybox{border:1px solid rgba(139,92,246,.35);background:rgba(139,92,246,.07);padding:56px 40px;text-align:center;margin-top:64px}
+.buybox .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px}
+.buybox .p{font-family:'JetBrains Mono',monospace;font-size:42px;font-weight:700;background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.buybox .p small{display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px}
+.buybox .btn{margin-top:26px}
+.more{margin-top:70px}
+.more h3{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);margin-bottom:22px}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.more-card{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2);padding:30px;transition:.3s;text-decoration:none;display:block}
+.more-card:hover{border-color:var(--cyan);transform:translateY(-4px)}
+.more-card .mono{font-size:11px;color:var(--cyan);letter-spacing:.2em}
+.more-card h4{font-size:18px;color:var(--paper);margin:12px 0 8px;line-height:1.35}
+.more-card p{font-size:14px;color:#9a9eb5;margin:0 0 12px}
+.more-card span.lnk{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:.15em}
+.prevnext{display:flex;justify-content:space-between;margin:56px 0 100px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em}
+.prevnext a{color:#9a9eb5;text-decoration:none}
+.prevnext a:hover{color:var(--cyan)}
+@media(max-width:860px){.prose{padding:40px 26px;margin-top:-40px}.more-grid{grid-template-columns:1fr}.article-hero img{height:260px}}
+</style>
+</head>
+<body>
+<nav><a href="../index.html" style="text-decoration:none;color:inherit"><div class="brand">AI<span>Model</span>Audits.com</div></a><a class="cta" href="https://www.afternic.com/domain/aimodelaudits.com">BUY_NOW $23,888</a></nav>
+<div class="article-top"><div class="wrap"><div class="term reveal">insights --file=model-audit-02 <span class="blink">▊</span></div><h1 class="reveal">How to Audit a Large Language Model: Methodology</h1><p class="lede reveal">You cannot audit what you cannot repeat. That is the first principle, and most LLM audit efforts violate it before they begin — testing a model through a chat interface, recording impressions, and calling the result an assessment. A real audit produces evidence: what was tested, on what data, with what method, by whom, and what was not tested. Everything else is a demo.</p><div class="meta reveal">6 MIN READ · AIMODELAUDITS.COM · OCTOBER 2026</div></div></div>
+<figure class="article-hero reveal"><img src="../images/photo-2599244.jpg" alt="Humanoid robot"></figure>
+<div class="wrap"><article class="prose reveal">
+<p>&quot;An LLM audit is not a grade. It is a sworn statement about what was tested, on what data, by whom — and what wasn&#x27;t.&quot; The methodology below is structured around the dimensions regulators, standards bodies, and serious enterprise buyers actually examine: bias and fairness, robustness, data lineage, benchmark evaluation, and red-teaming. It maps to the NIST AI Risk Management Framework&#x27;s Measure function and the control objectives of ISO/IEC 42001.</p><h2>Scope and Threat Model: Before Any Testing</h2><p>Every audit begins with two documents. The first is the scope statement: which model version, which deployment configuration, which use cases. A model is not a single artifact — GPT-4 with system prompt A in a customer-support deployment is a different audit target than the same weights with system prompt B in a code-review deployment. Version-pin everything: model checkpoint, system prompt, temperature and sampling parameters, retrieval configuration, tool integrations. If the deployment changes, the audit&#x27;s validity changes with it.</p><p>The second is the threat model: what harms are in scope. For a hiring-screening LLM, the threat model centers on discrimination across protected characteristics. For a medical-information LLM, on confabulated clinical guidance. For a customer-facing agent with tool access, on prompt injection and unauthorized actions. The threat model determines which tests matter; testing everything equally is how audits produce hundred-page reports that answer nothing.</p><h2>The Five Audit Dimensions</h2><p><strong>1. Bias and fairness testing.</strong> Run structured evaluations across demographic dimensions relevant to the deployment. Established instruments include BBQ (Bias Benchmark for QA), which measures stereotyped versus anti-stereotyped response patterns across nine social dimensions, and BOLD, which measures sentiment and regard across demographic prompts. The audit question is not &quot;is the model biased&quot; — every model trained on human text carries bias. The question is whether bias manifests in the deployment&#x27;s decisions at rates that violate the deployer&#x27;s stated fairness criteria or applicable law. For consequential decisions — hiring, lending, admissions — this dimension maps directly to Colorado AI Act impact assessment requirements and EU AI Act data-governance obligations. Document the metric, the threshold, and the result. &quot;Tested for gender bias in resume screening; disparate impact ratio 0.94 against a 0.80 threshold; pass&quot; is an audit finding. &quot;Seems fair&quot; is not.</p><p><strong>2. Robustness and adversarial evaluation.</strong> Test the model against inputs designed to break it: jailbreak prompts, prompt-injection payloads, edge-case formatting, adversarial paraphrases of refused requests. Track attack success rate by category. For agentic deployments, test tool-use boundaries — can the model be induced to take unauthorized actions, leak system instructions, or execute commands outside its scope? Robustness testing is where the EU AI Act&#x27;s systemic-risk requirements for GPAI models (adversarial testing, red-teaming for models above 10²⁵ FLOPs) and the evaluation practices of frontier labs converge. The audit should report not just pass rates but the specific attack classes tested, because a model robust against last year&#x27;s jailbreaks may be fragile against this year&#x27;s.</p><p><strong>3. Data lineage and provenance.</strong> Document what the model was trained on, what it was fine-tuned on, and what it retrieves at inference time. For foundation models, this means the provider&#x27;s training-data summary — required under the EU AI Act&#x27;s GPAI obligations since August 2025. For fine-tuned and RAG deployments, it means the actual datasets: sources, collection dates, consent basis, known limitations. Data lineage is the least glamorous dimension and the one most audits skip. It is also the dimension regulators ask about first, because training-data decisions are where discrimination and copyright exposure originate.</p><p><strong>4. Benchmark evaluation.</strong> Run standardized capability and safety benchmarks and report scores with confidence intervals, not point estimates. The core instruments: MMLU for broad knowledge, HELM (Stanford&#x27;s Holistic Evaluation of Language Models) for multi-dimensional assessment, TruthfulQA for confabulation tendency, and domain-specific suites (SWE-bench for code, MedQA for clinical knowledge) matched to the deployment. Use EleutherAI&#x27;s lm-evaluation-harness or equivalent open tooling so results are reproducible by a third party. Benchmarks don&#x27;t prove safety — they establish a capability baseline against which behavioral claims can be checked. A model scoring 92% on MMLU that confabulates citations in production has a deployment problem, not a capability problem, and the audit should say so.</p><p><strong>5. Red-teaming.</strong> Structured adversarial probing by humans, distinct from automated robustness testing. Effective red teams combine domain experts (who know what harmful outputs look like in context) with adversarial generalists (who know how to elicit them). Scope the engagement: number of person-hours, target harm categories, access level granted. Report findings as discrete vulnerabilities with severity ratings and reproduction steps — the format security teams already understand from penetration testing. The EU AI Act requires adversarial testing for systemic-risk GPAI models; Colorado&#x27;s framework treats adversarial testing as evidence of reasonable care. Red-teaming is becoming the audit artifact with the clearest legal value.</p><h2>The Evidence Pack</h2><p>The audit&#x27;s output is an evidence pack, not a score. Minimum contents: scope statement and version pins; threat model; test plan mapped to dimensions; raw results with methodology notes; findings with severity ratings; limitations — what was not tested and why; and a re-audit trigger list (model version change, prompt change, new deployment context, elapsed time). ISO/IEC 42001&#x27;s continual-improvement clause and the NIST AI RMF&#x27;s Manage function both require that auditing be a lifecycle activity, not a one-time event. An audit with no expiration date is a snapshot pretending to be a guarantee.</p><p>The organizations doing this well in 2026 treat LLM audits the way mature companies treat financial audits: scheduled, scoped, independently executed, and filed where regulators and boards can find them. The ones doing it poorly are still testing through the chat interface. The December 2027 EU deadline will sort the two groups definitively.</p>
+<div class="domain-note"><em>AIModelAudits.com — currently available — is the domain for the methodology the market is about to require at scale.</em></div>
+</article>
+<div class="buybox reveal"><div class="tag">DOMAIN_AVAILABLE // FIXED_PRICE</div><div class="p"><small>Buy Now</small>$23,888</div><a class="btn" href="https://www.afternic.com/domain/aimodelaudits.com">Acquire the Domain</a></div>
+<div class="more reveal"><h3>More insights</h3><div class="more-grid"><a class="more-card" href="article1.html"><span class="mono">FILE_01</span><h4>AI Model Audit Requirements 2026: What the Rules Actually Demand</h4><p>EU AI Act deadlines, Colorado's AI Act, NIST and ISO 42001 — a precise accounting of what each regime actually demands of AI audits in 2026.</p><span class="lnk">READ_FILE →</span></a><a class="more-card" href="article3.html"><span class="mono">FILE_03</span><h4>The AI Audit Market: Who&#x27;s Building the Infrastructure</h4><p>Four startups raised $67.6M, the Big Four are building assurance practices, and open-source tooling underpins it all. Where the AI audit money flows next.</p><span class="lnk">READ_FILE →</span></a></div></div>
+<div class="prevnext reveal"><a href="article1.html">← Previous insight</a><a href="article3.html">Next insight →</a></div>
+</div>
+<footer><p>Offered by <strong>Prime Domain Capital</strong> · Private holder of category-defining domains</p><p><a href="mailto:info@primedomaincapital.com">info@primedomaincapital.com</a></p></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5fb51d1999084c91989809d7608061e0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
