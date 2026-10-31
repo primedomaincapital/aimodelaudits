@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Model Audit Market Data — AIModelAudits.com</title>
+<meta name="description" content="Public figures on AI model audit demand, AI governance market size, documented AI incidents, and AI-related breach costs."
+<link rel="canonical" href="https://aimodelaudits.com/market-data">
+<meta property="og:title" content="AI Model Audit Market Data — AIModelAudits.com">
+<meta property="og:description" content="Public figures on AI model audit demand, AI governance market size, documented AI incidents, and AI-related breach costs.">
+<meta property="og:url" content="https://aimodelaudits.com/market-data">
+<meta property="og:type" content="website">
+<style>
+:root{--void:#06060f;--violet:#8b5cf6;--cyan:#22d3ee;--paper:#f4f2ff;--muted:#8b8fa3}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--void);color:var(--paper);overflow-x:hidden;line-height:1.65}
+.mono{font-family:'JetBrains Mono',monospace}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;background:rgba(6,6,15,.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,92,246,.2)}
+nav .brand{font-weight:700;font-size:15px;letter-spacing:.04em}
+nav .brand span{color:var(--violet)}
+nav a.cta{background:var(--violet);color:#fff;font-weight:600;font-size:13px;padding:12px 28px;text-decoration:none;transition:.3s;font-family:'JetBrains Mono',monospace}
+nav a.cta:hover{background:var(--cyan);color:var(--void);transform:translateY(-2px)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#06060f}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg video{width:100%;height:100%;object-fit:cover;opacity:.62}
+.hero .bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(139,92,246,.22),transparent 60%),linear-gradient(100deg,rgba(6,6,15,.92) 0%,rgba(6,6,15,.72) 45%,rgba(6,6,15,.42) 100%)}
+.hero-inner{position:relative;z-index:2;padding:120px 5vw 80px;max-width:1200px}
+.term{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);border:1px solid rgba(34,211,238,.4);padding:8px 18px;margin-bottom:24px;letter-spacing:.1em}
+.term .blink{animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-size:clamp(50px,8vw,120px);font-weight:700;line-height:.98;letter-spacing:-.03em}
+h1 .grad{background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{max-width:620px;margin-top:26px;font-size:19px;color:#b8bcd0}
+.hero-price{margin-top:36px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.price-tag{font-family:'JetBrains Mono',monospace;font-size:42px;font-weight:700}
+.price-tag small{display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.btn{display:inline-block;background:var(--violet);color:#fff;font-weight:600;font-size:15px;padding:17px 44px;text-decoration:none;transition:.3s;font-family:'JetBrains Mono',monospace}
+.btn:hover{background:var(--cyan);color:var(--void);transform:translateY(-3px);box-shadow:0 14px 44px rgba(139,92,246,.4)}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid rgba(244,242,255,.25)}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:none}
+section{padding:140px 5vw;position:relative}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+h2{font-size:clamp(36px,5vw,68px);font-weight:700;line-height:1.04;letter-spacing:-.02em;margin-bottom:28px}
+h2 .grad{background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:19px;max-width:700px;color:#9a9eb5}
+.mandate{border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.05)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:54px}
+.two-col p{font-size:16.5px;color:#9a9eb5;margin-bottom:20px}
+.code-block{background:#0a0a18;border:1px solid rgba(139,92,246,.3);padding:36px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.9;overflow-x:auto}
+.code-block .k{color:var(--violet)}.code-block .s{color:var(--cyan)}.code-block .c{color:#555a75}
+.timeline{margin-top:56px;border-left:2px solid rgba(139,92,246,.3);padding-left:40px}
+.t-item{margin-bottom:36px;position:relative}
+.t-item::before{content:'';position:absolute;left:-49px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--void);border:3px solid var(--violet)}
+.t-item .mono{font-size:12px;color:var(--cyan);letter-spacing:.1em}
+.t-item h4{font-size:20px;margin:8px 0 6px}
+.t-item p{font-size:15px;color:#9a9eb5}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.photo-grid img{width:100%;height:280px;object-fit:cover;filter:hue-rotate(240deg) saturate(.9) brightness(.85);transition:.7s}
+.photo-grid img:hover{filter:none;transform:scale(1.04)}
+.stat-band{border-top:1px solid rgba(139,92,246,.2);border-bottom:1px solid rgba(139,92,246,.2)}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;text-align:center}
+.stat b{display:block;font-size:clamp(44px,5.5vw,76px);font-weight:700;background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.buyers .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:54px}
+.card{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2);padding:42px 36px;transition:.35s}
+.card:hover{transform:translateY(-8px);border-color:var(--cyan);box-shadow:0 20px 60px rgba(139,92,246,.2)}
+.card .mono{font-size:11px;color:var(--cyan);letter-spacing:.22em;margin-bottom:14px;display:block}
+.card h3{font-size:21px;font-weight:600;margin-bottom:12px}
+.card p{font-size:15px;color:#9a9eb5}
+.cta-sec{text-align:center}
+.cta-sec .lede{margin:0 auto 40px}
+.cta-sec .hero-price{justify-content:center}
+footer{padding:60px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;border-top:1px solid rgba(139,92,246,.2)}
+footer p{font-size:13px;color:var(--muted)}
+footer a{color:var(--cyan);text-decoration:none}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){.two-col,.photo-grid,.stat-grid,.buyers .cards{grid-template-columns:1fr}h1{font-size:54px}}
+</style>
+<style>
+/* --- Market-data page additions (staged page only) --- */
+main.wrap{max-width:920px;margin:0 auto;padding:118px 20px 64px}
+main.wrap h1,main.wrap h2,main.wrap h3{overflow-wrap:break-word;word-break:break-word}
+main.wrap h1{font-size:clamp(30px,6vw,52px);line-height:1.12;margin:12px 0 10px}
+main.wrap h2{font-size:clamp(22px,4vw,30px);line-height:1.25;margin:44px 0 12px}
+main.wrap h3{font-size:19px;margin:26px 0 8px}
+main.wrap p,main.wrap li{font-size:17px;line-height:1.7;margin:0 0 14px}
+main.wrap ul{padding-left:22px}
+.stamp{display:inline-block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;border:1px solid rgba(255,255,255,.25);padding:8px 14px}
+.lede{font-size:19px;line-height:1.7;opacity:.92}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0}
+.stat{border:1px solid rgba(255,255,255,.22);padding:18px 20px}
+.stat b{display:block;font-size:30px;line-height:1.2;margin-bottom:6px;overflow-wrap:break-word}
+.stat span{font-size:15px;line-height:1.55;display:block}
+.figtable{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:16px}
+.figtable th,.figtable td{text-align:left;padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.18);vertical-align:top;overflow-wrap:break-word}
+.figtable th{font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.figtable td a,.stat a,main.wrap p a,main.wrap li a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.src{font-size:14px;opacity:.85}
+.buybox{border:1px solid rgba(255,255,255,.3);padding:22px 24px;margin:36px 0}
+.buybox a{color:inherit}
+.buybox .price{font-size:30px;font-weight:700;display:block;margin:6px 0}
+.note{background:rgba(255,255,255,.06);border-left:3px solid rgba(255,255,255,.4);padding:16px 20px;margin:26px 0}
+.note p{font-size:15px}
+footer{padding:32px 20px;text-align:center;font-size:14px}
+footer a{color:inherit}
+@media(max-width:520px){main.wrap{padding-top:96px}nav{padding:16px 18px!important}.figtable{font-size:14px}.figtable th,.figtable td{padding:9px 6px}}
+
+/* Phase 1 assembly 2026-10-31 */
+@media (max-width:900px){h1{font-size:clamp(44px,11vw,72px)!important}}
+
+/* Phase 1 assembly 2026-10-31 — nav solid correction */
+@media (max-width:900px){nav{background:rgb(6,6,15)!important;backdrop-filter:none!important}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "aimodelaudits.com market data",
+  "description": "Public figures on AI model audit demand, AI governance market size, documented AI incidents, and AI-related breach costs.",
+  "url": "https://aimodelaudits.com/market-data",
+  "temporalCoverage": "2023/2025",
+  "creator": {
+    "@type": "Organization",
+    "name": "Prime Domain Capital"
+  },
+  "sourceOrganization": [
+    {
+      "@type": "Organization",
+      "url": "https://aiindex.stanford.edu/"
+    },
+    {
+      "@type": "Organization",
+      "url": "https://www.ibm.com/security/data-breach?intcmp=NoOff_ibm_blog_body-blog-image_ext"
+    },
+    {
+      "@type": "Organization",
+      "url": "https://www.marketsandmarkets.com/Market-Reports/ai-governance-market-176187291.html?ref=s3t.org"
+    }
+  ],
+  "dateModified": "2026-10-25",
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+<style>
+/* Mobile rendering fix 2026-10-31: domain H1 lines, stacked nav, header clearance */
+@media (max-width:900px){
+main h1{overflow-wrap:normal!important;word-break:normal!important}
+nav:not(.toc){flex-direction:column!important;align-items:flex-start!important;gap:4px!important;padding-top:16px!important;padding-bottom:16px!important;padding-left:20px!important;padding-right:20px!important}
+.topbar{flex-direction:column!important;align-items:flex-start!important;gap:4px!important;padding-top:16px!important;padding-bottom:16px!important;padding-left:20px!important;padding-right:20px!important}
+main{padding-top:120px!important}
+main h1{font-size:clamp(30px,8.5vw,58px)!important;line-height:1.15!important}
+}
+</style>
+</head>
+<body>
+<nav><div class="brand">AI<span>Model</span>Audits.com</div><a class="cta" href="https://www.afternic.com/domain/aimodelaudits.com">Buy Now — $23,888</a></nav>
+<main class="wrap">
+<span class="stamp">Last updated: October 25, 2026</span>
+<p class="src" style="margin-top:14px">Market data · AI governance, audit, and incident costs</p>
+<h1>AI model audits, priced by the evidence</h1>
+
+<p class="lede">A model that passed its tests in the lab can still fail in front of customers, regulators, or a courtroom. The numbers below track how fast that failure surface is growing, what governance spending looks like, and what a breach costs when controls are missing. They come from public reports and public summaries of those reports, each linked beside the figure it supports.</p>
+<h2>Headline figures</h2>
+<div class="statgrid">
+<div class="stat"><b>362</b><span>Documented AI incidents in 2025, up from 233 in 2024, in the Stanford AI Index series. <a class="src" href="https://sapinsider.org/blogs/stanford-ai-index-2026-enterprise-ai-readiness-governance-risk/">Source: Stanford AI Index, via SAPinsider summary</a></span><span class="trend" style="font-size:14px;opacity:.85;display:block;margin-top:8px">Trend: ▲ Up vs 2024: 233</span></div>
+<div class="stat"><b>$285.9B</b><span>U.S. private AI investment in 2025, as reported in coverage of the Stanford AI Index 2026. <a class="src" href="https://agentictribune.com/article/20260629-stanford-ai-index-2026-capabilities-funding-and-adoption-outpace-governance-and-transparency">Source: Stanford AI Index, via Agentic Tribune</a></span><span class="trend" style="font-size:14px;opacity:.85;display:block;margin-top:8px">Trend: Baseline (October 2026) — trend tracking starts with the next refresh</span></div>
+<div class="stat"><b>$0.89B → $5.78B</b><span>MarketsandMarkets projection for the global AI governance market, 2024 to 2029, a 45.3% compound annual growth rate. <a class="src" href="https://www.marketsandmarkets.com/Market-Reports/ai-governance-market-176187291.html?ref=s3t.org">Source: MarketsandMarkets, public summary</a></span><span class="trend" style="font-size:14px;opacity:.85;display:block;margin-top:8px">Trend: ▲ Projected growth vs 2024: $0.89 billion (same MarketsandMarkets series)</span></div>
+<div class="stat"><b>$4.44M</b><span>Global average cost of a data breach in IBM's 2025 report; the U.S. average reached $10.22 million. <a class="src" href="https://www.ibm.com/security/data-breach?intcmp=NoOff_ibm_blog_body-blog-image_ext">Source: IBM Cost of a Data Breach Report 2025</a></span><span class="trend" style="font-size:14px;opacity:.85;display:block;margin-top:8px">Trend: ▼ Global down vs 2024: $4.88 million; ▲ U.S. up vs 2024: $9.36 million (IBM 2024 report, fetched this session)</span></div>
+</div>
+<p>Trend column: each figure is compared with its prior period from the same source, with the prior figure shown. Where no prior-period figure from the same source was available, the figure is labeled Baseline (October 2026) — trend tracking starts with the next refresh.</p><table class="figtable"><tr><th>Figure</th><th>Value</th><th>Source</th><th>Trend vs prior period</th></tr>
+<tr><td>Documented AI incidents, 2025 vs 2024</td><td>362 vs 233 (about 55% higher)</td><td><a href="https://sapinsider.org/blogs/stanford-ai-index-2026-enterprise-ai-readiness-governance-risk/">Stanford AI Index, via SAPinsider</a></td><td>▲ Up vs 2024: 233 (about 55% higher)</td></tr>
+<tr><td>Organizations reporting an AI-related incident that lacked proper AI access controls</td><td>97%</td><td><a href="https://www.ibm.com/security/data-breach?intcmp=NoOff_ibm_blog_body-blog-image_ext">IBM Cost of a Data Breach Report 2025</a></td><td>Baseline (October 2026) — trend tracking starts with the next refresh</td></tr>
+<tr><td>Organizations lacking AI governance policies to manage AI or shadow AI</td><td>63%</td><td><a href="https://www.northdoor.co.uk/insight/news/cost-of-a-data-breach-report-2025/">IBM 2025 report, via Northdoor summary</a></td><td>Baseline (October 2026) — trend tracking starts with the next refresh</td></tr>
+<tr><td>Extra average cost of a breach involving shadow AI</td><td>$670,000</td><td><a href="https://www.northdoor.co.uk/insight/news/cost-of-a-data-breach-report-2025/">IBM 2025 report, via Northdoor summary</a></td><td>Baseline (October 2026) — trend tracking starts with the next refresh</td></tr>
+<tr><td>Alternative AI governance market estimate, 2024 → 2030</td><td>$226.3M → $1.06B, 36.2% CAGR</td><td><a href="https://virtuemarketresearch.com/report/ai-governance-market">Source: Virtue Market Research, public summary</a></td><td>▲ Projected growth vs 2024: $226.3 million (same Virtue series)</td></tr>
+<tr><td>Framework dates: NIST AI Risk Management Framework 1.0; EU AI Act enters into force</td><td>January 2023; August 1, 2024</td><td><a href="https://github.com/losanchos5/aige/blob/HEAD/guides/ai-governance.md">AI governance timeline, citing NIST and EU sources</a></td><td>Baseline (October 2026) — trend tracking starts with the next refresh</td></tr>
+</table>
+<h2>What the spread in market estimates tells you</h2>
+<p>Two public summaries put the 2024 AI governance market at $0.89 billion and $226.3 million — a fourfold gap. That is not an error to average away. It shows the category has no settled boundary: one vendor counts compliance platforms, another counts a narrower governance-software slice. Treat any single market-size headline as a claim about a definition, and read the definition before the number. The direction, though, is consistent across both: governance spending grows several times faster than the broader software market, while incident counts climb alongside deployment.</p>
+<p>The IBM findings cut the other way against complacency. Breach costs fell globally in 2025, helped by faster detection, yet the U.S. average rose to a record and nearly every organization hit by an AI-related incident was missing basic access controls. The audit question is therefore concrete, not philosophical: who can reach the model, what did it do, and can anyone prove it afterward?</p>
+<div class="note"><h3>Methodology</h3><p>Included: public figures from the Stanford AI Index series (as covered in public summaries), IBM's 2025 breach-cost study, and public market-size summaries from two research firms. Excluded: vendor pricing for audit tools (no public benchmark was verified this session), paywalled report tables, and any OECD incident count separate from the Stanford series — none was verified. Where two sources disagreed on market size, both are shown rather than averaged.</p><p><strong>Disclaimer:</strong> Aggregated public estimates for information only, not investment or professional advice. Figures are reproduced as summaries with attribution, not as verbatim dataset tables.</p></div>
+
+<div class="buybox">
+<span>This domain is for sale</span>
+<span class="price">Buy Now — $23,888</span>
+<p>Secure transfer via <a href="https://www.afternic.com/domain/aimodelaudits.com">Afternic</a> &middot; Inquiries: <a href="mailto:info@primedomaincapital.com">info@primedomaincapital.com</a></p>
+</div>
+<h2>Changelog</h2>
+<ul>
+<li>October 2026: Initial edition — AI incidents, governance market estimates, breach costs, and framework dates established; trend indicators added to every figure (prior-period figures shown where the same source publishes them; all other figures labeled Baseline (October 2026)).</li>
+</ul>
+</main>
+<footer><p>Offered by <strong>Prime Domain Capital</strong> &middot; Private holder of category-defining domains</p><p><a href="mailto:info@primedomaincapital.com">info@primedomaincapital.com</a></p></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1407571ec8bc45c3a082c91096558135"}'></script>
+<p class="back-home" style="display:block;text-align:center;padding:28px 16px;font-size:15px"><a href="https://aimodelaudits.com/" style="color:inherit">&larr; Back to aimodelaudits.com</a></p>
+</body>
+</html>
