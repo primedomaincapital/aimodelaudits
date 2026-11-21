@@ -1,0 +1,15 @@
+# AIModelAudits.com — AI Governance & Model Auditing
+
+> AIModelAudits.com covers AI model auditing and governance.
+> The aimodelaudits.com domain is for sale at $23,888 (Buy Now) via Afternic, secured by Escrow.com.
+
+## Key pages
+- [AIModelAudits.com](https://aimodelaudits.com/)
+- [Market data](https://aimodelaudits.com/market-data)
+- [AI Model Audit Requirements 2026: What the Rules Actually Demand](https://aimodelaudits.com/insights/article1)
+- [How to Audit a Large Language Model: Methodology](https://aimodelaudits.com/insights/article2)
+- [The AI Audit Market: Who's Building the Infrastructure](https://aimodelaudits.com/insights/article3)
+- [The Audit Nobody Can Perform: Why AI Model Auditing Is a $10 Billion Problem Without an Answer](https://aimodelaudits.com/insights/article4)
+
+## Optional
+- [Sitemap](https://aimodelaudits.com/sitemap.xml)
